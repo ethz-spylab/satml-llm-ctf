@@ -7,11 +7,12 @@ This is the code used to run the [2024 SaTML LLM CTF](https://ctf.spylab.ai/). T
 - [Javier Rando](https://github.com/javirandor)
 - [@nustom](https://github.com/nustom) (hired with the support of [BERI](https://existence.org/))
 
-The app as a [FastAPI](https://fastapi.tiangolo.com/) web server, with a [MongoDB](https://www.mongodb.com) database,
+The app is a [FastAPI](https://fastapi.tiangolo.com/) web server, with a [MongoDB](https://www.mongodb.com) database,
 and a [Redis](https://redis.io/) cache. The web server is served by [Uvicorn](https://www.uvicorn.org/). Everything runs
 in [Docker](https://www.docker.com/) and `docker compose`.
 
-Note that the platform was developed while the competition was running, so not all design decisions were optimal.
+Note that the platform was developed while the competition was running and the exact specifics were being detailed,
+so not all design decisions were optimal.
 
 We ran the application on a single Google Cloud VM with 64GB of RAM and 32 vCPUs. This was enough for most of the
 competition, but the most heated phases were running a bit too slow.
