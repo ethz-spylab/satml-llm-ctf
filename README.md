@@ -26,7 +26,13 @@ that test the API, but we don't have any unit tests.
 - [ ] Simplify the slight mess in [`app/schemas`](app/schemas). Currently, there is some redundancy in the schema classes.
 - [ ] Move from `docker compose` to `kubernetes` or something similar for better scalability and reliability.
 
-## How to (re)start the overall system
+## Setting up the environment
+
+1. Create a `.env` file with the same content as `.env.example`, and change the values as needed.
+2. Create a `.env.prod` file with the same content as `.env.example`, and change the values as needed.
+3. Create a `.secrets` folder with the same content as `secrets.example`, and change the values as instructed in each file.
+
+## How to (re)start the application
 
 ```
 docker compose --env-file .env.prod -f compose.prod.yml up --build -d
