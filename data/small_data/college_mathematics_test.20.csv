@@ -1,0 +1,36 @@
+"Let k be the number of real solutions of the equation e^x + x - 2 = 0 in the interval [0, 1], and let n be the number of real solutions that are not in [0, 1]. Which of the following is true?",k = 0 and n = 1,k = 1 and n = 0,k = n = 1,k > 1,B
+"Suppose V is a real vector space of finite dimension n. Call the set of matrices from V into itself M(V). Let T be in M(V). Consider the two subspaces U = {X ∈ M(V) : TX = XT} and W = {TX − XT : X ∈ M(V)}. Which of the following must be TRUE?
+I. If V has a basis containing only eigenvectors of T then U = M(V).
+II. dim (U) + dim (W) = n^2
+III. dim (U) < n",I only,II only,III only,I and II only,B
+"Which of the following are valid intervals of convergence for a power series?
+(I) [−1, 3)
+(II) (−∞, 0]
+(III) [2, 2] ∪ [3, 3]
+(IV) (−∞,∞)",Only (II),Only (IV ),(I) and (IV ),(II) and (III),C
+"Consider the system of linear equations
+w + 3x + 2y + 2z = 0
+w + 4x + y = 0
+3w + 5x + 10 y + 14z = 0
+2w + 5x + 5y + 6z = 0
+with solutions of the form (w, x, y, z), where w x, y, and z are real. Which of the following statements is FALSE?",The system is consistent.,The system has infinitely many solutions.,The sum of any two solutions is a solution.,"Every solution is a scalar multiple of (-5, 1, 1, 0).",D
+"In the xy-plane, the graph of x^(log y) = y^log x is",the open first quadrant,a closed curve,a ray in the open first quadrant,a single point,A
+"Let x_1 = 1 and x_(n+1) = sqrt(3+2x_n) for all positive integers n. If it is assumed that {x_n} converges, then lim x_n =",3,e,sqrt(5),0,A
+"Suppose X is a discrete random variable on the set of positive integers such that for each positive integer n, the probability that X = n is 1/2^n. If Y is a random variable with the same probability distribution and X and Y are independent, what is the probability that the value of at least one of the variables X and Y is greater than 3 ?",1/64,15/64,1/4,3/8,B
+Suppose today is Wednesday. What day of the week will it be 10^(10^(10)) days from now?,Sunday,Monday,Tuesday,Wednesday,A
+"If A is the 2 by 2 matrix whose (i, j) entry is equal to i + j, and B is the 3 by 3 matrix whose (i, j) entry is equal to i + j, find the value of the sum detA + detB.",-2,-1,0,2,B
+"S(n) is a statement about positive integers n such that whenever S(k) is true, S(k + 1) must also be true. Furthermore, there exists some positive integer n0 such that S(n0) is not true. Of the following, which is the strongest conclusion that can be drawn?",S(n0 + 1) is not true.,S(n0 - 1) is not true.,S(n) is not true for any n <= n0,S(n) is not true for any n >= n0,C
+"What is the minimum value of the expression x + 4z as a function defined on R^3, subject to the constraint x^2 + y^2 + z^2 <= 2?",0,-2,-sqrt(34),-sqrt(35),C
+"Let X be a topological space, and let A, B, and C be nonempty subsets of X such that A c B c C; that is, A is a proper subset of B, and B is a proper subset of C. Which of the following statements is (are) true?
+I. If A and C are connected, then B is connected.
+II. If A and C are compact, then B is compact.
+III. If A and C are Hausdorff, then B is Hausdorff.",I and II only,III only,I and III only,"I, II, and III",D
+Which of the following are true:,"It is possible to place an linear order relation ≤ on the complex numbers C such that (C, +, ×, ≤) is not an ordered field.","It is possible to place a linear order relation on the complex numbers C which make (C, +, ×, ≤) an ordered field.",Neither (a) nor (b),Both (a) and (b).,A
+"Statement 1 | Suppose f : [a, b] is a function and suppose f has a local maximum. f'(x) must exist and equal 0? Statement 2 | There exist non-constant continuous maps from R to Q.","True, True","True, False","False, True","False, False",D
+"A university’s mathematics department has 10 professors and will offer 20 different courses next semester. Each professor will be assigned to teach exactly 2 of the courses, and each course will have exactly one professor assigned to teach it. If any professor can be assigned to teach any course, how many different complete assignments of the 10 professors to the 20 courses are possible?",20!/2^(10),10!/2^9,10^(20) - 2^(10),10^(20) - 100,A
+"Up to isomorphism, how many additive abelian groups G of order 16 have the property that x + x + x + x = 0 for each x in G ?",0,1,2,3,D
+Which of the following circles has the greatest number of points of intersection with the parabola x^2 = y + 4 ?,x^2 + y^2 = 1,x^2 + y^2 = 2,x^2 + y^2 = 9,x^2 + y^2 = 16,C
+"Let f(x,y) = x^2 - 2xy + y^3 for all real x and y. Which of the following is true?",f has all of its relative extrema on the line x = y.,f has all of its relative extrema on the parabola x = y^2.,"f has a relative minimum at (0, 0).","f has an absolute minimum at (2/3, 2/3).",A
+"Let C be the circle in the yz-plane whose equation is (y - 3)^2 + z^2 = 1. If C is revolved around the z-axis, the surface generated is a torus. What is the equation of this torus?",x^2 + y^2 + z^2 + 8 = 6y,(x^2 + y^2 + z^2)^2 = 8 + 36(x^2 + z^2),(x^2 + y^2 + z^2 + 8)^2 = 36(x^2 + z^2),(x^2 + y^2 + z^2 + 8)^2 = 36(x^2 + y^2),D
+A tree is a connected graph with no cycles. How many nonisomorphic trees with 5 vertices exist?,1,2,3,4,C
+Statement 1 | Suppose {s_n} and {t_n} are sequences of complex numbers such that lim_n→∞ s_n = s and lim_n→∞ tn = t. lim_n→∞ s_nt_n = st. Statement 2 | There exists a bounded sequence of real numbers with no convergent subsequence.,"True, True","True, False","False, True","False, False",B

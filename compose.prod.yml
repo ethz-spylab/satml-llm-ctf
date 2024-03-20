@@ -1,0 +1,135 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: always
+    expose:
+      - "80"
+    depends_on:
+      - mongo
+      - redis
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.llms-ctf.rule=Host(`${HOSTNAME}`)
+      - traefik.http.routers.llms-ctf.tls=true
+      - traefik.http.routers.llms-ctf.tls.certresolver=letsencrypt
+      # https-redirect middleware to redirect HTTP to HTTPS
+      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+      - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
+      # Middleware to redirect HTTP to HTTPS
+      - traefik.http.routers.llms-ctf.middlewares=https-redirect
+    environment:
+      HOSTNAME: ${HOSTNAME}
+      DATABASE_URL: mongo:27017/${MONGO_INITDB_DATABASE}?retryWrites=true&w=majority&authSource=admin
+      MONGODB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      CHAT_MODELS: ${CHAT_MODELS}
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      OPENAI_ORGANIZATION: ${OPENAI_ORGANIZATION}
+      FORWARDED_ALLOW_IPS: "*"
+      USE_EMAILS_ALLOWLIST: ${USE_EMAILS_ALLOWLIST} 
+      ALLOWED_EMAILS: ${ALLOWED_EMAILS}
+      COMP_PHASE: ${COMP_PHASE}
+      LEADERBOARD_CACHE_EXPIRATION: 60
+    secrets:
+      - secret_key
+      - openai_api_key
+      - together_api_key
+      - github_client_secret
+      - google_client_secret
+      - mongodb_root_password
+      - redis_password
+
+  mongo:
+    image: mongo:7.0.2-jammy
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongodb_root_password
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    volumes:
+      - .volumes/prod/mongo:/data/db
+    secrets:
+      - mongodb_root_password
+
+  mongo-express:
+    image: mongo-express:1.0.0-20
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - "8082:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
+      ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_AUTH_USERNAME: ${MONGO_ROOT_USER}
+      ME_CONFIG_MONGODB_AUTH_PASSWORD_FILE: /run/secrets/mongodb_root_password
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGOEXPRESS_LOGIN}
+      ME_CONFIG_BASICAUTH_PASSWORD_FILE: /run/secrets/mongo_express_admin_password
+    secrets:
+      - mongodb_root_password
+      - mongo_express_admin_password
+
+  redis:
+    image: redis/redis-stack-server:7.2.0-v4
+    restart: always
+    volumes:
+        - .volumes/prod/redis:/data
+    command: >
+      bash -c 'redis-server --requirepass "$$(cat /run/secrets/redis_password)"'
+    secrets:
+      - redis_password
+
+  traefik:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.traefik
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./traefik-public-certificates:/certificates"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.dashboard.rule=Host(`traefik.${HOSTNAME}`) && PathPrefix(`/api`, `/dashboard`)
+      - traefik.http.routers.dashboard.tls.certresolver=letsencrypt
+      - traefik.http.routers.dashboard.tls=true
+      - traefik.http.routers.dashboard.service=api@internal
+      - traefik.http.routers.dashboard.middlewares=auth
+      - traefik.http.middlewares.auth.basicauth.usersfile=/run/secrets/traefik_usersfile
+      # https-redirect middleware to redirect HTTP to HTTPS
+      - traefik.http.middlewares.https-redirect.redirectscheme.scheme=https
+      - traefik.http.middlewares.https-redirect.redirectscheme.permanent=true
+      # traefik-http set up only to use the middleware to redirect to https
+      - traefik.http.routers.dashboard.middlewares=https-redirect
+    secrets:
+      - traefik_usersfile
+
+secrets:
+  secret_key:
+    file: .secrets/prod/secret_key
+  mongodb_root_password:
+    file: .secrets/prod/mongodb_root_password
+  mongo_express_admin_password:
+    file: .secrets/prod/mongo_express_admin_password
+  redis_password:
+    file: .secrets/prod/redis_password
+  openai_api_key:
+    file: .secrets/openai_api_key
+  together_api_key:
+    file: .secrets/together_api_key
+  traefik_usersfile:
+    file: .secrets/prod/traefik_usersfile
+  github_client_secret:
+    file: .secrets/prod/github_client_secret
+  google_client_secret:
+    file: .secrets/prod/google_client_secret

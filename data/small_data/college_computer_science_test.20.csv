@@ -1,0 +1,57 @@
+The access matrix approach to protection has the difficulty that,"the matrix, if stored directly, is large and can be clumsy to manage",it is not capable of expressing complex protection requirements,deciding whether a process has access to a resource is undecidable,there is no way to express who has rights to change the access matrix itself,A
+"Array A contains 256 elements of 4 bytes each. Its first element is stored at physical address 4,096.
+Array B contains 512 elements of 4 bytes each. Its first element is stored at physical address 8,192.
+Assume that only arrays A and B can be cached in an initially empty, physically addressed, physically tagged, direct-mapped, 2K-byte cache with an 8-byte block size. The following loop is then executed.
+for (i = 0; i < 256; i++)
+        A[i] = A[i] + B[2*i];
+During the execution of the loop, how many bytes will be written to memory if the cache has a write-through policy?",0,256,1024,2048,C
+"Let G = (V, E) be a finite directed acyclic graph with |E| > 0. Which of the following must be true?
+I. G has a vertex with no incoming edge.
+II. G has a vertex with no outgoing edge.
+III. G has an isolated vertex, that is, one with neither an incoming edge nor an outgoing edge.",I only,II only,III only,I and II only,D
+"Local caching of files is common in distributed file systems, but it has the disadvantage that",Temporary inconsistencies among views of a file by different machines can result,The file system is likely to be corrupted when a computer crashes,A much higher amount of network traffic results,Caching makes file migration impossible,A
+A starvation-free job-scheduling policy guarantees that no job waits indefinitely for service. Which of the following job-scheduling policies is starvation-free?,Round-robin,Priority queuing,Shortest job first,Youngest job first,A
+"Which of the following statements about circuits is (are) true?
+I. Combinational circuits may have feedback; sequential circuits do not.
+II. Combinational circuits have a ""memoryless"" property; sequential circuits do not.
+III. Both sequential and combinational circuits must be controlled by an external clock.",I only,II only,I and II only,II and III only,B
+Which of the following instruction-set features is NOT generally considered an obstacle to aggressive pipelining of an integer unit?,Condition codes set by every instruction,Variable-length encoding of instructions,Instructions requiring widely varying numbers of cycles to execute,Several different classes (sets) of registers,D
+"Of the following, which gives the best upper bound for the value of f(N) where f is a solution to the recurrence f(2N + 1) = f(2N) = f(N) + log N for N >= 1, with f(1) = 0?",O(log N),O(N log N),O(log N) + 0(1),O((log N)^2),D
+"In the NoNicks operating system, the time required by a single file-read operation has four nonoverlapping components:
+disk seek time-25 msec
+disk latency time-8 msec
+disk transfer time- 1 msec per 1,000 bytes
+operating system overhead-1 msec per 1,000 bytes + 10 msec
+In version 1 of the system, the file read retrieved blocks of 1,000 bytes. In version 2, the file read (along with the underlying layout on disk) was modified to retrieve blocks of 4,000 bytes. The ratio of-the time required to read a large file under version 2 to the time required to read the same large file under version 1 is approximately",1:4,1:3.5,1:1,1.1:1,B
+"A program that checks spelling works in the following way. A hash table has been defined in which each entry is a Boolean variable initialized to false. A hash function has been applied to each word in the dictionary, and the appropriate entry in the hash table has been set to true. To check the spelling in a document, the hash function is applied to every word in the document, and the appropriate entry in the hash table is examined. Which of the following is (are) correct?
+I. true means the word was in the dictionary.
+II. false means the word was not in the dictionary.
+III. Hash table size should increase with document size.",I only,II only,I and II only,II and III only,B
+"For all strings x, the function x^M is defined recursively as follows.
+e^M= e, and
+if w is a string and a is a string with length 1, then
+(aw)^M = aw^Ma.
+Let a be a string with length 1, and let x and y be arbitrary strings. Which of the following is true?",a^M = a,(ax)^M = (xa)^M,(xy)^M = y^Mx^M,None of the above,D
+Which of the following statements about floating-point arithmetic is NOT true?,It is inherently nonassociative because some numbers have no exact representation.,It is inherently nonassociative because there have to be upper and lower bounds on the size of numbers.,Associativity can be achieved with appropriate roundoff conventions.,Some rational numbers have no exact representation.,C
+"Languages with a structure that implements abstract data types (e.g., a C++ class) can prevent access to components of this structure by all operations except those that are part of this structure. However, definitions of such a structure often contain declarations of components of the structure (e.g., the header file for a C++ class may contain declarations of its private components). For such a language, an object's name could be bound at run time to stack storage for its component values (direct representation) or to a stack pointer referencing heap storage for its component values (indirect representation). Which of the following statements about comparisons between direct and indirect representations is (are) true?
+I. Indirect representation noticeably increases compilation time.
+II. Direct representation decreases the time needed to access components of a variable.
+III. When the storage size of some private component of a variable changes, indirect representation minimizes the number of recompilations of source modules that must be performed.",I only,III only,I and II only,II and III only,D
+"Two processors, M-5 and M-7, implement the same instruction set. Processor M-5 uses a 5-stage pipeline and a clock cycle of 10 nanoseconds. Processor M-7 uses a 7-stage pipeline and a clock cycle of 7.5 nanoseconds. Which of the following is (are) true?
+I. M-7’s pipeline has better maximum throughput than M-5’s pipeline.
+II. The latency of a single instruction is shorter on M-7’s pipeline than on M-5’s pipeline.
+III. Programs executing on M-7 will always run faster than programs executing on M-5.",I only,II only,I and III,II and III,A
+If a malicious process is granted temporary administrator-level access to a system,the threat is over as soon as the process is killed,the threat is over after the operating system is rebooted,the thread is over after rebooting the machine and replacing files that show a virus infection,the threat is often permanent until the entire disk is wiped clean,D
+"Two alternatives for interconnecting a set of processors with bidirectional links are (1) the fully interconnected network, in which each processor is directly connected to every other processor, and (2) the ring network, in which each processor is connected to two other processors. The worst-case path length for a network is the maximum, over all pairs of nodes in the network, of the minimum length paths (measured in number of links) between the nodes. For each type of interconnection of n processors, a figure of merit can be formed as the product of the number of links required for the network times the worst-case path length connecting any two processors. The ratio of this figure of merit for the fully interconnected network compared to that of the ring network, for even n > 2, is",1/(n^2),1/(n(n-1)),1/n,(n-1)/n,D
+"Two expressions E and F are said to be unifiable if there are substitutions for the variables of E and F that make the expressions lexically identical. In the following three expressions, only w, x, y, and z are variables.
+I. f(w,w)
+II. f(x,1)
+III. f(y,g(z))
+Which pairs of these expressions is (are) pairs of unifiable expressions?","(I, II) only","(I, III) only","(II, III) only","(I, II) and (I, III) only",D
+Which of the following is usually NOT represented in a subroutine's activation record frame for a stack-based programming language?,Values of local variables,A heap area,The return address,Stack pointer for the calling activation record,B
+"Resolution theorem proving for showing that a formula of propositional logic is not satisfiable has which of the following properties?
+I. It is a sound proof system in the sense that there does not exist a proof of the unsatisfiability of a satisfiable formula of propositional logic.
+II. It is a complete proof system in the sense that there is a proof of unsatisfiability for every unsa tisfiable formula of propositional logic.
+III. It is a succinct proof system in the sense that whenever an unsatisfiable formula F of propositional logic has a resolution proof, F also has a proof whose length is polynomial in the length of F.",I only,III only,I and II only,I and III only,C
+The language {ww | w in (0 + 1)*} is,not accepted by any Turing machine,"accepted by some Turing machine, but by no pushdown automaton","accepted by some pushdown automaton, but not context-free","context-free, but not regular",B
+Hash tables can contribute to an efficient average-case solution for all of the problems described below EXCEPT:,"Counting distinct values: Given a set of n keys, determine the number of distinct key values.","Dynamic dictionary: Support the operations of insert, delete, and search in a dictionary.","Range search: Given values a and b, find all the records whose key value is in the range a, b.","Symbol table lookup: Given a program identifier, find its type and address.",C

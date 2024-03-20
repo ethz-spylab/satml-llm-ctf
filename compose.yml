@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --reload --port 8000
+    volumes:
+    - ./app:/app/app
+    - ./static:/app/static
+    - ./templates:/app/templates
+    - ./data:/data
+    ports:
+      - "8000"
+    depends_on:
+      - mongo
+      - redis
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.llms-ctf-dev.rule=Host(`localhost`)
+    environment:
+      HOSTNAME: localhost
+      DATABASE_URL: mongo:27017/${MONGO_INITDB_DATABASE}?retryWrites=true&w=majority&authSource=admin
+      MONGODB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      ALLOW_INSECURE_HTTP: 1
+      OAUTHLIB_INSECURE_TRANSPORT: 1
+      CHAT_MODELS: ${CHAT_MODELS}
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      USE_EMAILS_ALLOWLIST: 0
+      COMP_PHASE: ${COMP_PHASE}
+      LEADERBOARD_CACHE_EXPIRATION: 10
+      START_TIMESTAMP: ${START_TIMESTAMP}
+    secrets:
+      - secret_key
+      - openai_api_key
+      - together_api_key
+      - github_client_secret
+      - google_client_secret
+      - mongodb_root_password
+      - redis_password
+
+  mongo:
+    image: mongo:7.0.2-jammy
+    restart: always
+    volumes:
+      - .volumes/dev/mongo:/data/db
+    ports:
+    - "27017:27017"
+    secrets:
+      - mongodb_root_password
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongodb_root_password
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+
+  mongo-express:
+    image: mongo-express:1.0.0-20
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - "8082:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
+      ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_MONGODB_AUTH_USERNAME: ${MONGO_ROOT_USER}
+      ME_CONFIG_MONGODB_AUTH_PASSWORD_FILE: /run/secrets/mongodb_root_password
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGOEXPRESS_LOGIN}
+      ME_CONFIG_BASICAUTH_PASSWORD_FILE: /run/secrets/mongo_express_admin_password
+    secrets:
+      - mongodb_root_password
+      - mongo_express_admin_password
+
+  redis:
+    image: redis/redis-stack:7.2.0-v4
+    volumes:
+        - .volumes/dev/redis:/data
+    command: >
+        bash -c 'redis-server --requirepass "$$(cat /run/secrets/redis_password)"'
+    ports:
+      - "6379:6379"
+      - "8001:8001"
+    secrets:
+      - redis_password
+
+  traefik:
+    image: traefik:v2.10
+    ports:
+      - "8008:80"
+      - "8081:8080"
+    volumes:
+      - "./traefik.dev.toml:/etc/traefik/traefik.toml"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+volumes:
+  redis_data:
+
+secrets:
+  secret_key:
+    file: .secrets/dev/secret_key
+  mongodb_root_password:
+    file: .secrets/dev/mongodb_root_password
+  mongo_express_admin_password:
+    file: .secrets/dev/mongo_express_admin_password
+  redis_password:
+    file: .secrets/dev/redis_password
+  openai_api_key:
+    file: .secrets/openai_api_key
+  together_api_key:
+    file: .secrets/together_api_key
+  github_client_secret:
+    file: .secrets/dev/github_client_secret
+  google_client_secret:
+    file: .secrets/dev/google_client_secret

@@ -1,0 +1,17 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.1.13
+    hooks:
+      # Run the linter.
+      - id: ruff
+        # Don't fix the errors automatically.
+        # args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
+# Getting mypy to work with pre-commit is complicated bc we have some dependencies it's not inheriting.
+#  - repo: https://github.com/pre-commit/mirrors-mypy
+#    rev: 'v1.8.0' 
+#    hooks:
+#      - id: mypy
+

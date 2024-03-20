@@ -1,0 +1,18 @@
+FROM tiangolo/uvicorn-gunicorn:python3.11-slim
+
+RUN apt-get update && apt-get install -y netcat-openbsd
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+WORKDIR /app
+
+COPY ./requirements.txt /app/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+
+COPY ./data /data
+COPY ./app /app/app
+COPY ./static /app/static
+COPY ./templates /app/templates
+COPY prestart.sh /app/prestart.sh

@@ -1,0 +1,68 @@
+Let x = 1. What is x << 3 in Python 3?,1,3,8,16,C
+"An Insect class is to be written, containing the following data fields: age, which will be initialized to 0 when an Insect is constructed. nextAvailableID, which will be initialized to 0 outside the constructor and incremented each time an Insect is constructed. idNum, which will be initialized to the current value of nextAvailableID when an Insect is constructed. position, which will be initialized to the location in a garden where the Insect is placed when it is constructed. direction, which will be initialized to the direction the Insect is facing when placed in the garden. Which variable in the Insect class should be static?",age,nextAvailableID,idNum,position,B
+"The color of a pixel can be represented using the RGB (Red, Green, Blue) color model, which stores values for red, green, and blue, each ranging from 0 to 255. How many bits (binary digits) would be needed to represent a color in the RGB model?",8,16,24,32,C
+"In Python 3, which of the following function checks in a string that all characters are in uppercase?",isupper(),join(seq),len(string),"ljust(width[, fillchar])",A
+Both online newspapers and social media sites are used to distribute information on the Internet. Which of the following best describes an advantage that online newspapers have over social media sites?,The ability to distribute information instantaneously,The ability to provide credibility to the information distributed,The ability to provide information that is widely accessible,The ability to provide media-rich content for low cost,B
+Which of the following has the greatest potential for compromising a user's personal privacy?,A group of cookies stored by the user's Web browser,The Internet Protocol (IP) address of the user's computer,The user's e-mail address,The user's public key used for encryption,A
+A programmer uses code published online under a Creative Commons Attribution (C C B Y) license in a commercial product. Which of the following best describes an acceptable use of the code?,Copying code from the online source into the programmer's product without any other actions,Copying code from the online source into the programmer's product and limiting the copied code to ten code lines,Copying code from the online source into the programmer's product and changing all variable names,Copying code from the online source into the programmer's product and crediting the original author in the manner indicated by the license,D
+"Two lists, list1 and list2, contain the names of books found in two different collections. A librarian wants to create newList, which will contain the names of all books found in either list, in alphabetical order, with duplicate entries removed.
+
+ For example, if 1istl contains
+ [""Macbeth"", ""Frankenstein"", ""Jane Eyre""]
+ and 1ist2 contains
+ [""Frankenstein"", ""Dracula, ""Macbeth"", ""Hamlet""],
+ then newList will contain
+ [""Dracula"", ""Frankenstein"", ""Hamlet"", ""Jane Eyre"", ""Macbeth""].
+
+ The following procedures are available to create newList.
+ Procedure
+ Explanation
+ Sort (list)
+ Sorts list in alphabetical order and returns the resulting list.
+ Combine (listl, list2)
+ Creates a new list consisting of the entries from
+ list1 followed by the entries from list2. The resulting list is returned.
+ RemoveDuplicates (list)
+ Iterates through list. If any two or more entries have the same value, the duplicate entries are removed so that any entry appears at most once. The resulting list is returned.
+
+ Which of the following code segments will correctly create newList?","newList ← Combine (listl, list2)
+ newList ← Sort (newList)
+ newList ← RemoveDup1icates (newList)","listl ← Sort (listl)
+ list2 ← Sort (list2)
+ newList ← Combine (listl, list2)
+ newList ← RemoveDuplicates (newList)","listl ← RemoveDuplicates (listl)
+ list2 ← RemoveDuplicates (list2)
+ newList ← Combine (listl, 1ist2)
+ newList ← Sort (newList)","listl ← RemoveDuplicates (listl)
+ listl ← Sort (listl)
+ list2 ← RemoveDuplicates (list2)
+ 1ist2 ← Sort (list2)
+ newList ← Combine (listl, list2)",A
+A programmer is deciding between using a linear or binary search to find a target value in a sorted list. Which of the following is true?,"In all cases, a binary search of a sorted list requires fewer comparisons than a linear search.","Generally, the advantage of using a binary search over a linear search increases as the size of the list increases.",A linear search will generally run faster than a binary search because a linear search requires fewer lines of code to implement.,Using a linear search is preferable to using a binary search if there is a chance that the target may not be found in the list.,B
+"A retailer that sells footwear maintains a single database containing records with the following information about each item for sale in the retailer's store.
+
+   ° Item identification number
+   ° Footwear type (sneakers, boots, sandals, etc.)
+   ° Selling price (in dollars)
+   ° Size
+   ° Color
+   ° Quantity available
+
+ Using only the database, which of the following can be determined?",Which items listed in the database are not currently in the store,Which colors are more popular among men than women,Which type of footwear is most popular among adults,The total number of shoes sold in a particular month,A
+"Consider the following three scenarios, which could be modeled using three data structures— dictionary/map, queue, and stack. Scenario 1: Cars line up in a single lane at a car wash. As each driver reaches the entrance of the car wash, the driver gets out of the car. An automatic pulley moves the car through the car wash as the driver walks to the exit of the car wash to pay and pick up the car. Scenario 2: Contestants auditioning for a reality television talent show are assigned a unique numeric ID upon completing a registration form. Scenario 3: Tennis balls are sold in a cylindrical can that can hold a maximum of 3 balls, where each ball except the bottom one rests on top of the ball below it. The 3 balls are placed in the can one at a time through one opening at the top of the can. The 3 balls are removed from the can one at a time through the same opening. Which of the following shows the data structures that best model the scenarios? Scenario 1 | Scenario 2 | Scenario 3",Dictionary/map | Queue | Stack,Dictionary/map | Stack | Queue,Queue | Dictionary/map | Stack,Stack | Queue | Dictionary/map,C
+"Let l = [1,2,2,3,4]. In Python3, what is a possible output of set(l)?",{1},"{1,2,2,3,4}","{1,2,3,4}","{4,3,2,2,1}",C
+Which of the following spreadsheet functions would be most useful for detecting improbably high or low values that have become part of a data set as a result of data entry errors?,A function that averages numeric values in a column or row,A function that counts the values in a column or row,A function that rounds a numeric value,A function that sorts values in a column or row,D
+What is the value of this python expression: 4 + 3 % 2?,1,6,4,5,D
+"In Python 3, what is the following function returns item from the list with max value?",cmp(list),len(list),max(list),min(list),C
+"This question is based on the following declarations: String strA = ""CARROT"", strB = ""Carrot"", strC = ""car""; Given that all uppercase letters precede all lowercase letters when considering alphabetical order, which is true?",strA.compareTo(strB) < 0 && strB.compareTo(strC) > 0,strC.compareTo(strB) < 0 && strB.compareTo(strA) < 0,strB.compareTo(strC) < 0 && strB.compareTo(strA) > 0,!(strA.compareTo(strB) == 0) && strB.compareTo(strA) < 0,C
+"In Python 3, what is the output of print tuple[0] if tuple = ( 'abcd', 786 , 2.23, 'john', 70.2 )?","( 'abcd', 786 , 2.23, 'john', 70.2 )",abcd,Error,None of the above.,B
+Which of the following is the hexadecimal representation of the decimal number 231_{10} ?,17_{16},E4_{16},E7_{16},F4_{16},C
+"A user enters a Web address in a browser, and a request for a file is sent to a Web server. Which of the following best describes how the file is sent to the user?",The file is broken into packets for transmission. The packets must be reassembled upon receipt.,The file is broken into packets for transmission. The user's browser must request each packet in order until all packets are received.,"The server attempts to connect directly to the user's computer. If the connection is successful, the entire file is sent. If the connection is unsuccessful, an error message is sent to the user.","The server repeatedly attempts to connect directly to the user's computer until a connection is made. Once the connection is made, the entire file is sent.",A
+"Consider the following code segment.
+ int num1 = value1, num2 = value2, num3 = value3;
+ while (num1 > num2 || num1 > num3)
+ {
+ /* body of loop */
+ }
+ You may assume that value1, value2, and value3 are int values. Which of the following is sufficient to guarantee that /* body of loop */will never be executed?",num1 < num2,num1 < num3,num1 > num2 && num1 > num3,num1 < num2 && num1 < num3,D
+Which is the smallest asymptotically?,O(1),O(n),O(n^2),O(log n),A

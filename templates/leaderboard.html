@@ -1,0 +1,52 @@
+<link
+  href="{{ url_for('static', path='/table_style.css') }}"
+  rel="stylesheet"
+/>
+
+<meta name="score-api-url" content="{{ score_api_url }}" />
+<section class="center">
+  <header>
+    <h2>Leaderboard</h2>
+  </header>
+  <div class="table-container table-style">
+    <table class="table" id="attacker_leaderboard_table">
+      <thead>
+        <tr>
+          <th class="sticky-col first-col">Defense \ Team</th>
+          <th class="sticky-col second-col">Value of Defense</th>
+          {% for attacker in attacker_names %}
+          <th>{{ attacker }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for entry in score_data %}
+        <tr>
+            <td class="sticky-col first-col">{{ entry["name"] }}</td>
+            <td class="sticky-col second-col">{{ entry["value"] }}</td>
+            {% for name in attacker_names %}
+            {% set current_attacker_scores = attacker_scores[entry["name"]] %}
+            {% if name in current_attacker_scores %}
+              <td>{{ current_attacker_scores[name] }}</td>
+            {% else %}
+              <td>-</td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+        <tr>
+          <td><strong>Total Score</strong></td>
+          <td><strong>-</strong></td>
+          {% for attacker in attacker_names %}
+              {% set team_total = attacker_totals[attacker] %}
+              <td><strong>{{ team_total }}</strong></td>
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<hr />
+
+<script src="{{ url_for('static', path='/scripts/leaderboard.js') }}"></script>
+<script data-goatcounter="https://llmctf23.goatcounter.com/count" data-goatcounter-settings='{"allow_local": true}' async src="//gc.zgo.at/count.js"></script>

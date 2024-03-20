@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/static/favicon-32x32.png">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+    <title>$if(pagetitle)$$pagetitle$$else$$title$ | LLM CTF @ SaTML 2024 $endif$</title>
+</head>
+<body>
+  <header>
+      <nav>
+          <h1>LLM CTF @ SaTML 2024</h1>
+          <ul>
+              <li><a href="/static/rules.pdf">Rules</a></li>
+              <li><a href="/leaderboard/">Leaderboard</a></li>
+              <li><a href="/attack/">Interface</a></li>
+              <li><a href="/docs">API Docs</a></li>
+              <li><a href="/api-key">API Key</a></li>
+              <li><a target="_blank" href="https://github.com/ethz-spylab/satml-llms-ctf-issues">Issue tracker</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc5lDXapW76S5yp3VylOpzsiOp8l2NgC-aHieYZiFXdLawvsw/viewform">Register Team</a></li>
+              {% if not logged_in %}
+                <li><a href="/login">Login</a></li>
+              {% else %}
+                <li><a href="/logout">Logout</a></li>
+              {% endif %}
+          </ul>
+      </nav>
+      <h1> Large Language Model Capture-the-Flag (LLM CTF) Competition @ SaTML 2024</h1>
+  </header>
+    <main>
+        $body$
+    </main>
+</body>
+<script data-goatcounter="https://llmctf23.goatcounter.com/count" data-goatcounter-settings='{"allow_local": true}' async src="//gc.zgo.at/count.js"></script>

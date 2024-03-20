@@ -1,0 +1,21 @@
+"If a pentagon P with vertices at (– 2, – 4), (– 4, 1), (–1, 4), (2, 4), and (3, 0) is reflected across the line y = x to get a new pentagon, P’, then one of the vertices of P’ is","(0, – 3)","(4, 1)","(2, 2)","(– 4, –2)",D
+How many diagonals are in a regular octagon?,8,16,17,20,D
+"John has 12 marbles of different colors, including one red, one green, and one blue marble. In how many ways can he choose 4 marbles, if exactly one of the chosen marbles is red, green, or blue?",252,276,441,84,A
+"Let $C$ be the circle with equation $x^2+12y+57=-y^2-10x$. If $(a,b)$ is the center of $C$ and $r$ is its radius, what is the value of $a+b+r$?",-9,-5,-6,-57,A
+What is the sum of all positive integer values of $n$ such that $n^2$ is a factor of $1200$?,42,12,36,39,A
+"If 3^(x – 3) + 10 = 19, then x =",3,4,5,6,C
+"The numbers $x$ and $y$ are inversely proportional. When the sum of $x$ and $y$ is 42, $x$ is twice $y$. What is the value of $y$ when $x=-8$?",-49,-7,-40,40,A
+What is the second number in the row of Pascal's triangle that has 43 numbers?,43,16,42,44,C
+"A theater group has eight members, of which four are females. How many ways are there to assign the roles of a play that involve one female lead, one male lead, and three different objects that can be played by either gender?",640,720,8,1920,D
+Find the remainder when 25^1059 is divided by 23.,11,13,8,5,C
+Simplify the fraction by rationalizing the denominator: $$\frac{4}{\sqrt{108}+2\sqrt{12}+2\sqrt{27}}.$$,\frac{4\sqrt{3}}{33},\frac{\sqrt{3}}{12},2\sqrt{27},\frac{1}{4\sqrt{3}},B
+"The standard tip in a restaurant is $ 15 \%$ of the bill before tax. Many people in California find the tip by doubling the sales tax, which is $8.25 \%$. By how many cents does this exceed the standard tip on a bill of $ \$60 $ before tax?",90,80,70,60,A
+The quadratic $2x^2+5x+12=19-7x$ has two solutions. What is the positive difference between these solutions?,2,\sqrt{2},5\sqrt{2},5,C
+"If a clock chimes every hour the same number of times as the hour it is (e.g., at 3 P.M. it chimes 3 times) and once for every 15-minute increment between hours (e.g., at 3:15, 3:30, and 3:45), what will the total number of chimes be between 5:10 and 7:35 P.M.?",3,15,18,21,D
+"Given that a rectangle with length $3x$ inches and width $x + 5$ inches has the property that its area and perimeter have equal values, what is $x$?",1,5,\frac{10}{3},\frac{3}{10},A
+Find all positive values of $c$ so that the inequality $x^2-6x+c<0$ has real solutions for $x$. Express your answer in interval notation.,"(0, 9)","(1, 1)","(6, 0)","(6, 6)",A
+"Zoey is laying bricks for her patio. The salesman wants to sell Zoey as many bricks as possible to cover her patio with a thickness of one brick, while not having any extra bricks. The patio area is a rectangle with dimensions 12 feet by 10 feet, and each individual brick is 4 inches by 6 inches by 2 inches. What would be the greatest number of bricks the salesman could sell to meet his sales criteria?","5,760","2,880","2,160","1,440",C
+John divided his souvenir hat pins into two piles. The two piles had an equal number of pins. He gave his brother one-half of one-third of one pile. John had 66 pins left. How many pins did John originally have?,792,66,396,72,D
+"Five years ago, a computer that worked half as fast as a current computer cost twice as much money. The current computer's speed to price ratio is what percent of the older computer's speed to price ratio?",20,400,32,\frac{2}{5},B
+"John noticed that the angle formed by the minute hand and hour hand on a standard 12-hour clock was 110 degrees when he left home after 6 p.m.; it was also 110 degrees when he returned after 6 p.m. but before 7 p.m. that same night. If he left home for more than five minutes, for how many minutes was he away?",36,40,38,43,B
+Compute $\dbinom{85}{82}$.,252,4680,98770,101170,C

@@ -1,0 +1,32 @@
+.table-container {
+  overflow: hidden;
+}
+
+main {
+  padding-top: 0;
+}
+
+header {
+  padding-bottom: 0;
+}
+
+/*
+.sticky-col {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.first-col {
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
+  left: 0px;
+}
+
+.second-col {
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+  left: 100px;
+}
+*/
