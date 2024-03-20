@@ -26,6 +26,7 @@ that test the API, but we don't have any unit tests.
 - [ ] Make the whole repo more templetable, so that it can be used as a starting point for other CTFs and similar projects.
 - [ ] Simplify the slight mess in [`app/schemas`](app/schemas). Currently, there is some redundancy in the schema classes.
 - [ ] Move from `docker compose` to `kubernetes` or something similar for better scalability and reliability.
+- [ ] Use [`rye`](https://rye-up.com) to manage the Python project.
 
 ## Setting up the environment
 
